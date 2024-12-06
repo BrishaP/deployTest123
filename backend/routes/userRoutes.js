@@ -44,5 +44,41 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// User Login
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Check if user exists using an async DB query using mongoose findOne 
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid credentials' });
+    }
+
+    // Check password
+    //using bcrypt to compare text password in req body to hashed password in DB
+    //returns true for match and false otherwise
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid credentials' });
+    }
+
+    // Generate JWT
+    //creates JWT containing anique userID, so can identify user in authenticated requests
+    //gets JWT token from env file 
+    //Give this token 1hhr expiration, after this user has to sign in again
+    //the JWT generatedd stored in token
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: '1h',
+    });
+
+    res.status(200).json({ token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
 //exporting here, to inport in server.js
 export default router;
