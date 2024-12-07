@@ -79,6 +79,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Get User Details
+//COMPLETE THIS AFTER WHEN I FINISH
 
 //exporting here, to inport in server.js
 export default router;
