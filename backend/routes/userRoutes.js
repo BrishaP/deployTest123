@@ -2,6 +2,7 @@ import express from 'express';
 import User from '../database/models/user.js'; //using the schema, moongoose model for user schema to interact with DB
 import bcrypt from 'bcryptjs'; //library for hashing passwords to securely store them 
 import jwt from 'jsonwebtoken'; // library for generating and verifying JWT for auth 
+import authMiddleware from '../authMiddleware.js';
 
 // Express router, to define routes and handle HTTP requests for specific paths 
 const router = express.Router();
@@ -12,6 +13,19 @@ const router = express.Router();
 
 router.post('/register', async (req, res) => {
   const { forename, surname, email, password } = req.body;
+
+  if (!forename || !surname || !email || !password) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ message: 'Invalid email format' });
+  }
+
+  if (password.length < 6) {
+    return res.status(400).json({ message: 'Password must be at least 6 characters long' });
+  } 
 
 //checks database to see if DB for a user with same email exists
 //if so 400 status code 
@@ -49,6 +63,10 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
+  if (!email || !password) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
   try {
     // Check if user exists using an async DB query using mongoose findOne 
     const user = await User.findOne({ email });
@@ -81,7 +99,17 @@ router.post('/login', async (req, res) => {
 });
 
 // Get User Details
-//COMPLETE THIS AFTER WHEN I FINISH
+// GET route to fetch user details
+//authmiddleware async function so only authenticaed users can access this route
+router.get('/', authMiddleware, async (req, res) => {
+  try {
+    //responds with user details attached to req object by authmiddleware
+    res.json(req.user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 //exporting here, to inport in server.js
 export default router;
