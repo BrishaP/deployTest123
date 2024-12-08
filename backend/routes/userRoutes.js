@@ -41,6 +41,7 @@ router.post('/register', async (req, res) => {
     //if email doesn't exist in DB, new user created 
     //password hashed using bcrypt.js 
     //salting--> to do with how algorithm encrypts password (allows diff users having same password as well as other reasons)
+    //adds random data to password before hashing to ensure uniqueness & security
     user = new User({
       forename,
       surname,
@@ -49,6 +50,7 @@ router.post('/register', async (req, res) => {
     });
 
    //Promise, using await to ensure code wait until user is saved before proceeding 
+   //save user to DB using await to ensure code waits until user is saved before proceeding
    //The response for resource created should be 201, but I am changing this to 200 OK for this purpose- change back after
  
     await user.save();
