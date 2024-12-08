@@ -11,7 +11,7 @@ const router = express.Router();
 //extracts user details from req body 
 
 router.post('/register', async (req, res) => {
-  const { name, email, password } = req.body;
+  const { forename, surname, email, password } = req.body;
 
 //checks database to see if DB for a user with same email exists
 //if so 400 status code 
@@ -28,7 +28,8 @@ router.post('/register', async (req, res) => {
     //password hashed using bcrypt.js 
     //salting--> to do with how algorithm encrypts password (allows diff users having same password as well as other reasons)
     user = new User({
-      name,
+      forename,
+      surname,
       email,
       password: await bcrypt.hash(password, 10),
     });
