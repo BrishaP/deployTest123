@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';// see header explanation= programmaric navigation (don't physically click link- REDIRECTION)
 import { useAuth } from '../context/AuthContext';
+import './LoginPage.css';
 
 //useState to store and update user email and password
 const LoginPage = () => {
@@ -17,7 +18,7 @@ const LoginPage = () => {
   };
 //function to handlesubmission. Prevent default submission behaviour
 //if email is invalid- pop up alert and user cannot proceed
-/ELSE
+//ELSE
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateEmail(email)) {
@@ -53,30 +54,32 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <p>Please enter your email and password to access your account.</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+    <div className="login-container">
+      <div className="login-form">
+        <h1>Login</h1>
+        <p>Please enter your email and password to access your account.</p>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn-login">Login</button>
+        </form>
+      </div>
     </div>
   );
 };
