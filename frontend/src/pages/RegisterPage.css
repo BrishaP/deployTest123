@@ -1,0 +1,76 @@
+/* Body styling */
+body {
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Set font for entire page */
+    background-color: white; /* White background for entire page */
+  }
+  
+  /* Main container */
+  .register-container {
+    display: flex; /* Flexbox - center content */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100vh; /* Full viewport height */
+    padding: 40px 0; /* Spacing on top and bottom */
+    background-color: white; /* White background */
+  }
+  
+  /* Form styling */
+  .register-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* Title and description */
+  .register-form h1 {
+    margin: 8px 0px 16px;
+    font-size: 24px;
+    color: #4a4a4a;
+  }
+  
+  .register-form p {
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  /* Input styling */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  /* Button styling */
+  .btn-register {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff5100;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-register:hover {
+    background-color: #e64a00;
+  }
