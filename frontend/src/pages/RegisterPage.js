@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './RegisterPage.css'
 
 const RegisterPage = () => {
   const [forename, setForename] = useState('');
@@ -49,59 +50,60 @@ const RegisterPage = () => {
   };
 
   return (
-    <div>
-    <h1>Register</h1>
-    <p>Please enter your details to create an account.</p>
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Forename:</label>
-        <input
-          type="text"
-          value={forename}
-          onChange={(e) => setForename(e.target.value)}
-          required
-        />
+    <div className="register-container">
+      <div className="register-form">
+        <h1>Register</h1>
+        <p>Please enter your details to create an account.</p>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Forename:</label>
+            <input
+              type="text"
+              value={forename}
+              onChange={(e) => setForename(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Surname:</label>
+            <input
+              type="text"
+              value={surname}
+              onChange={(e) => setSurname(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Confirm Password:</label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn-register">Register</button>
+        </form>
       </div>
-      <div>
-        <label>Surname:</label>
-        <input
-          type="text"
-          value={surname}
-          onChange={(e) => setSurname(e.target.value)}
-          required
-        />
-      </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
     </div>
   );
 };
-
 export default RegisterPage;
