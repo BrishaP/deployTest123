@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './LandingPage.css'
 
 const LandingPage = () => {
   const [user, setUser] = useState(null);// state to store user variables 
@@ -30,11 +31,13 @@ const LandingPage = () => {
   }
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <p>Forename: {user.forename}</p>
-      <p>Surname: {user.surname}</p>
-      <p>Email: {user.email}</p>
+    <div className="landing-container">
+      <div className="profile">
+        <h1>Profile</h1>
+        <p>Forename: {user.forename}</p>
+        <p>Surname: {user.surname}</p>
+        <p>Email: {user.email}</p>
+      </div>
     </div>
   );
 };
