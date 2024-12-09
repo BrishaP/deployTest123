@@ -9,7 +9,7 @@ body {
   .register-container {
     display: flex; /* Flexbox - center content */
     justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
+    align-items: flex-start; 
     height: 100vh; /* Full viewport height */
     padding: 40px 0; /* Spacing on top and bottom */
     background-color: white; /* White background */
