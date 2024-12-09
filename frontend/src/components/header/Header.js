@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';//useState to manage state. useEffect to side effects that effects something outside of component e.g fetch data from API hence the JWT
 import { Link, useNavigate } from 'react-router-dom';// routing in react apps, nav between diff pages and components without reloading whole page. // useNavigate allows redirecting/linking to something else via code without physically clicking link (e.g., after login redirect to homepage)
 import { useAuth } from '../../context/AuthContext';
+import './Header.css'
 
 //setting up state this auth is set to false initially unless conditions below met
 //custom hook to use auth context
@@ -32,21 +33,26 @@ const Header = () => {
 
 //conditional rendering of Log Out button, if a user is authenticated, then we want to see the log out button
 //We want to see Login and Register links in the header (unless you've logged in- then see sign out button)
-  return (
-    <header>
-      <h1>HEADER</h1>
+return (
+  <header className="header-container">
+    <div className="header-content">
+      <h1 className="logo">
+      <Link  className="nav-link" to="/"> Home </Link>
+
+      </h1>
       <nav>
         {isAuthenticated ? (
-          <button onClick={handleLogout}>Log Out</button>
+          <button className="btn-logout" onClick={handleLogout}>Log Out</button>
         ) : (
           <>
-            <Link to="/login">Login</Link> 
-            <Link to="/register">Register</Link>
+            <Link className="nav-link" to="/login">Login</Link>
+            <Link className="nav-link" to="/register">Register</Link>
           </>
         )}
       </nav>
-    </header>
-  );
+    </div>
+  </header>
+);
 };
 
 export default Header;
