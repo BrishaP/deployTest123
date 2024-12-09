@@ -1,0 +1,45 @@
+/* Body styling */
+body {
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+    background-color: white; 
+  }
+  
+  /* Main container e */
+  .home-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    height: 100vh; 
+    padding: 40px 0; 
+    background-color: white; 
+  }
+  
+  /* Content styling */
+  .home-content {
+    text-align: left; 
+    max-width: 800px;
+    padding: 20px;
+    background-color: white; 
+    border-radius: 8px; 
+  }
+  
+  /* Title styling */
+  .home-content h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600; 
+  }
+  
+  /* Paragraph styling */
+  .home-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+
+
+  
