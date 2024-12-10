@@ -42,7 +42,10 @@ return (
       </h1>
       <nav>
         {isAuthenticated ? (
+          <>
           <button className="btn-logout" onClick={handleLogout}>Log Out</button>
+          <Link className="nav-link" to="/landing">Profile</Link>
+          </>
         ) : (
           <>
             <Link className="nav-link" to="/login">Login</Link>

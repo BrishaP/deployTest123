@@ -12,7 +12,7 @@ body {
   
   .header-container {
     display: flex;
-    justify-content: space-between; /* Space between logo and nav links */
+    justify-content: space-between; 
     align-items: center;
     padding: 0 20px; 
   }
@@ -33,7 +33,7 @@ body {
   
   nav {
     display: flex;
-    gap: 20px; /* Space between links */
+    gap: 20px;
     align-items: center;
   }
   
@@ -45,7 +45,7 @@ body {
   }
   
   .nav-link:hover {
-    color: #ffe0b2; /* Lighter shade on hover */
+    color: #ffe0b2; 
   }
   
   .btn-logout {
