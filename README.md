@@ -13,12 +13,13 @@ This is a full-stack web application that allows users to register, log in, and 
 -   **Email Validation**: Frontend validates email format, and password length before submission.
 
 ### Features to be Implemented (next MVP's):
--   **Unit Testing**: Jest and React Testing Library are used to test the frontend components.
+-   **Unit Testing**: Jest and React Testing Library are used to test the frontend. (in progress)
 -   **Redux for State Management** (coming soon): State management for authentication and user details.
 -   **Navigation**: Navigation back to the profile page after login.
 -   **Password Validation**: Additional password validation such as checking for special characters.
 -   **Email Confirmation**: Adding an email confirmation feature to verify email addresses during registration.
 -   **Deployment**: The application will be deployed to a hosting platform.
+-   **Responsive**: e.g adding media queries, currently desktop first.
 
 ### Pages and Components:
 
