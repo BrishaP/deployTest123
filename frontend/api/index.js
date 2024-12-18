@@ -24,8 +24,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const connectDB = require('../../backend/database/connectDB.js');
-const userRoutes = require('../../backend/routes/userRoutes.js');
+const connectDB = require('./connectDB.js')
+const userRoutes = require('./userRoutes.js')
 
 // use connectDB function to establish connection to mongo DB
 connectDB();
