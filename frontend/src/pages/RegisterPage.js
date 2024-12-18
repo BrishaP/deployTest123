@@ -31,7 +31,7 @@ const RegisterPage = () => {
     }
 
     // Send a POST request to the backend to register the user
-    const response = await fetch('http://localhost:5000/user/register', {
+    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/user/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', //specifies headers (key-value pairs) to include in request. soecifies req contains JSON and to expect JSON in req body

@@ -8,7 +8,7 @@ const LandingPage = () => {
     //fetch user from backend
     const fetchUserDetails = async () => {
       const token = localStorage.getItem('token'); // Get JWT token from local storage 
-      const response = await fetch('http://localhost:5000/user/', {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/user/`, {
         headers: {
           'Authorization': `Bearer ${token}`,//header includes JWT token in request to authenticate request and verify user identity. 
         },                    //bearer token (token that grants access to resources)
