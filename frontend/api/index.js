@@ -39,7 +39,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use('/api/user', userRoutes);
+app.use('/user', userRoutes);
 
 // Export the app as a serverless function
 module.exports = app;
